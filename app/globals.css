@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-fraunces: "Fraunces";
+  --font-inter: "Inter";
+  --font-plex: "IBM Plex Mono";
+  --ink: #0b0b0d;
+  --paper: #ede8df;
+  --brass: #c8a24b;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--ink);
+  color: var(--paper);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: rgba(200, 162, 75, 0.25);
+  color: var(--paper);
+}
+
+/* ---- analytical grid backdrop ---- */
+.grid-field {
+  background-image:
+    linear-gradient(rgba(237, 232, 223, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(237, 232, 223, 0.04) 1px, transparent 1px);
+  background-size: 72px 72px;
+}
+
+.grid-fade {
+  -webkit-mask-image: radial-gradient(
+    ellipse 90% 80% at 50% 30%,
+    black 30%,
+    transparent 100%
+  );
+  mask-image: radial-gradient(
+    ellipse 90% 80% at 50% 30%,
+    black 30%,
+    transparent 100%
+  );
+}
+
+/* ---- scroll reveal ---- */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---- carousel ---- */
+.carousel-track {
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+.carousel-track.dragging {
+  transition: none;
+  cursor: grabbing;
+}
+.carousel-card {
+  transition:
+    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.4s ease;
+}
+.carousel-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(200, 162, 75, 0.35);
+}
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* ---- focus states ---- */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 1px solid var(--brass);
+  outline-offset: 3px;
+}
+
+/* ---- reduced motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .carousel-track,
+  .carousel-card {
+    transition: none;
+  }
+}
