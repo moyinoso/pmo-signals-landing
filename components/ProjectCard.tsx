@@ -1,4 +1,4 @@
-import { caseStudyUrl, type Project } from "@/lib/site";
+import { type Project } from "@/lib/site";
 
 export default function ProjectCard({ project }: { project: Project }) {
   return (
@@ -26,17 +26,6 @@ export default function ProjectCard({ project }: { project: Project }) {
           </li>
         ))}
       </ul>
-
-      <a
-        href={caseStudyUrl(project.slug)}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="group mt-8 inline-flex w-fit items-center gap-2 font-mono text-xs tracking-label text-paper"
-      >
-        <span className="border-b border-brass/60 pb-1 transition-colors group-hover:text-brass">
-          VIEW EVIDENCE ↗
-        </span>
-      </a>
     </article>
   );
 }

@@ -1,4 +1,4 @@
-import { links, site } from "@/lib/site";
+import { site, links } from "@/lib/site";
 
 export default function Footer() {
   return (
@@ -19,6 +19,7 @@ export default function Footer() {
               Want to see the full investigation?
             </p>
           </div>
+
           <span className="font-mono text-xs tracking-label text-muted transition-colors group-hover:text-brass">
             SEE EVERYTHING →
           </span>
@@ -35,6 +36,7 @@ export default function Footer() {
           >
             GitHub
           </a>
+
           <a
             href={links.linkedin}
             target="_blank"
@@ -43,6 +45,7 @@ export default function Footer() {
           >
             LinkedIn
           </a>
+
           <a
             href={links.medium}
             target="_blank"
@@ -52,6 +55,7 @@ export default function Footer() {
             Medium
           </a>
         </div>
+
         <p className="font-mono text-[11px] text-muted/60">
           © 2026 {site.name}
         </p>
